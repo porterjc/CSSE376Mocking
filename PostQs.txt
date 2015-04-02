@@ -1,1 +1,5 @@
-1. 
+1. A strictmock of the database object is made and then the expected return for a given call is assigned and then the object to be tested is made and assigned the mock database then assert.areEquals are used to test in conjunction with VerifyAll() to confirm that the ran tests do pass when given the database info. 
+2. ExpectationViolationException is thrown. Reordering resolves the issue. 
+3. Putting  Expect.Call(mockDB.getRoomOccupant(Arg<int>.Is.Anything)).Return("Empty room"); below the existing expect calls makes the empty case work. 
+4. Just like before we create a mockdatabase, only this time we make a list of rooms and then assign the database to return its room property whenever it is called for before setting that property to the list of rooms we made. We then construct a hotel and run the tests.
+5. Two cars are created and added to the service locator. The private variables are then made public through the use of the reflection. The tests are then set up and ran. 
